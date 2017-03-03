@@ -1,0 +1,39 @@
+
+name <- load("data/ResultsFromLINEAR/PredProbOutput_SVM_OC.R")
+load("data/ResultsFromLINEAR/PredProbOutput_SVM_OC.R")
+# logicalAnomaly
+
+noClass = 0;
+noClassAndAnomalous = 0
+oneClass = 0;
+oneClassAndAnomalous = 0;
+multiClass = 0;
+multiClassAndAnomalous = 0;
+
+classCounter <- rep(0, length(classType));
+
+rowSumLogicalClass <- rowSums(logicalClassMember)
+for(i in 1:length(rowSumLogicalClass)){
+
+	if(rowSumLogicalClass[i] == 0){
+		noClass = noClass  + 1;
+
+		if(!logicalAnomaly[i]){
+			noClassAndAnomalous = noClassAndAnomalous  + 1;
+		}
+
+	}else if (rowSumLogicalClass[i] == 1){
+		oneClass = oneClass  + 1;
+		if(!logicalAnomaly[i]){
+			oneClassAndAnomalous = oneClassAndAnomalous + 1;
+		}else{
+			index = which(logicalClassMember[i,] == 1)
+			classCounter[index] = classCounter[index] + 1;
+		}
+	}else {
+		multiClass  = multiClass  + 1;
+		if(!logicalAnomaly[i]){
+			multiClassAndAnomalous = multiClassAndAnomalous + 1;
+		}
+	}
+}
