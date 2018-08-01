@@ -1,6 +1,9 @@
 # LINEARSupervisedClassification
 The initial analysis of LINEAR data using supervised classification methods.
 
+LSC (LINEAR Supervised Classification) trains a number of classifiers, including random forest and K-nearest neighbor, to classify variable stars and compares the results to determine which classifier is most successful. Written in R, the package includes anomaly detection code for testing the application of the selected classifier to new data, thus enabling the creation of highly reliable data sets of classified variable stars.
+
+http://ascl.net/1807.033
 
 See: 
 
@@ -12,6 +15,8 @@ New Astronomy, 52, 35-47.
 
 Please note that the corresponding data files that are necessary to process the data from "scratch" are not included as
 part of this repository and are too big to be included.
+
+
 
 You can get the data at
 
